@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_142530) do
+ActiveRecord::Schema.define(version: 2020_12_08_180923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "category"
+    t.integer "difficulty"
+    t.bigint "player1_id"
+    t.bigint "player2_id"
+    t.integer "player_started_id"
+    t.integer "winner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player1_id"], name: "index_games_on_player1_id"
+    t.index ["player2_id"], name: "index_games_on_player2_id"
+  end
 
   create_table "jwt_denylists", force: :cascade do |t|
     t.string "jti"
