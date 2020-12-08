@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def render_jsonapi_response(resource)
     if resource.errors.empty?
@@ -11,9 +11,9 @@ class ApplicationController < ActionController::API
 
 
 
-#  protected
+ protected
 
-#  def configure_permitted_parameters
-#     devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :status, :validated])
-#  end
+ def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname, :pseudo, :score])
+ end
 end
