@@ -16,4 +16,5 @@ Rails.application.routes.draw do
                  sessions: 'sessions',
                  registrations: 'registrations'
                }
+    get '/users/:id/games', to: 'users#user_games'
 end
