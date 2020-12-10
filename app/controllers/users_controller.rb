@@ -2,8 +2,13 @@ class UsersController < ApplicationController
 
   
   def index
-    @users = User.all
-    render json: @users
+    if params[:pseudo]
+      @users = User.all.select {|user| user.pseudo.start_with?(params[:pseudo])}
+      render json: @users
+    else
+      @users = User.all
+      render json: @users 
+    end 
   end
 
   def show
