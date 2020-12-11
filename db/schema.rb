@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_12_08_195102) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "category"
-    t.integer "difficulty"
+    t.integer "category"
+    t.string "difficulty"
     t.bigint "player1_id"
     t.bigint "player2_id"
     t.integer "player_started_id"
