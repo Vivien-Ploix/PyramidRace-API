@@ -35,7 +35,7 @@ class GamesController < ApplicationController
   end 
 
   def game_histories
-    @game_histories = @game.game_histories.select { |game_history| game_history.player_id === @game.player1_id }
+    @game_histories = @game.game_histories.select { |game_history| game_history.user_id === @game.player1_id }
     render json: @game_histories
   end 
 
