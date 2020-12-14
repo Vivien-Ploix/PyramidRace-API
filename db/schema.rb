@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_195102) do
     t.string "difficulty"
     t.bigint "player1_id"
     t.bigint "player2_id"
-    t.integer "player_started_id"
+    t.string "turn"
     t.integer "winner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
