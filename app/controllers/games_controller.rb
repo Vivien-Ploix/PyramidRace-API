@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  before_action :set_game, only: [:show, :destroy, :update]
+  before_action :set_game, only: [:show, :destroy, :update, :game_histories]
   before_action :authenticate_user!, only: [:create, :destroy]
 
 
@@ -23,7 +23,6 @@ class GamesController < ApplicationController
   end 
 
   def update 
-    
     if @game.update(game_update_params)
       render json: @game, location: games_url(@game)
     else 
@@ -33,6 +32,11 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
+  end 
+
+  def game_histories
+    @game_histories = @game.game_histories.select { |game_history| game_history.player_id === @game.player1_id }
+    render json: @game_histories
   end 
 
   private 
