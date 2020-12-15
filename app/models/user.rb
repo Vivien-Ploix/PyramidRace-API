@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :player2_games, class_name: "Game", foreign_key: :player2_id
   has_many :game_histories
   has_many :games, through: :game_histories
+
+  validates :pseudo, presence: true
+  validates_length_of :pseudo, :minimum => 3
+
 end
