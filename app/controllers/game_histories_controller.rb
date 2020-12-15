@@ -36,3 +36,5 @@ class GameHistoriesController < ApplicationController
     params.require(:game_history).permit(:user_id, :game_id, :response_correct, :question_time, :response_time)
   end 
 end
+
+

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :user_games, :user_games_to_play]
+  before_action :set_user, only: [:show, :user_games, :user_games_to_play, :possible_opponents]
 
   def index
     if params[:pseudo]
@@ -28,6 +28,11 @@ class UsersController < ApplicationController
     @games = @games.select { |game| game.turn === "player2" && !game.winner_id}
     render json: @games
   end
+
+  def possible_opponents
+    @opponents = User.all.select {|opponent| opponent.id != @user.id} 
+    render json: @opponents
+  end 
 
 
   private

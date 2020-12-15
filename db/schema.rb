@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2020_12_08_195102) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "category"
-    t.string "difficulty"
+    t.integer "category", default: 9, null: false
+    t.string "difficulty", default: "medium", null: false
     t.bigint "player1_id"
     t.bigint "player2_id"
-    t.string "turn"
+    t.string "turn", default: "player1", null: false
     t.integer "winner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,9 +51,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_195102) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "firstname"
-    t.string "lastname"
-    t.string "pseudo"
+    t.string "pseudo", default: "", null: false
     t.integer "score"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

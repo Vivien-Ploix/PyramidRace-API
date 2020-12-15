@@ -19,5 +19,8 @@ Rails.application.routes.draw do
                }
     get '/users/:id/games', to: 'users#user_games'
     get '/users/:id/games_to_play', to: 'users#user_games_to_play'
+    get '/users/:id/possible_opponents', to: 'users#possible_opponents'
+
+
 
 end

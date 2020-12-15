@@ -15,8 +15,6 @@ User.destroy_all
   User.create(
     email: "admin@yopmail.com",
     password: "123456",
-    firstname: "admin",
-    lastname: "vivien",
     pseudo: "admin",
     score:  555
   )
